@@ -1,2 +1,22 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="col-xs-3">
+	<%= render "layouts/shared/userinfo" %>
+</div>
+
+<div class="col-xs-9">
+	<h2>Book detail</h2>
+	<table class="table">
+		<tbody>
+			<tr>
+        <td>
+        	<a href="/users/3205">
+          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon">
+          <br>test</a>
+        </td>
+        <td><a href="/books/5712">book#show</a></td>
+        <td>current_user</td>
+				<td><a class="btn-sm btn-success edit_book_5712" href="/books/5712/edit">Edit</a></td>
+				<td><a data-confirm="本当に消しますか？" class="btn-sm btn-danger destroy_book_5712" rel="nofollow" data-method="delete" href="/books/5712">Destroy</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
