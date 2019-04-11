@@ -1,6 +1,5 @@
-    <h2>Users</h2>
-
-    <table class="table">
+<h2>Users</h2>
+<table class="table">
   <thead>
     <tr>
       <th>image</th>
@@ -8,57 +7,17 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
+    <% @users.each do |user| %>
       <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>aaaa</td>
-        <td><a class="user_3198" href="/users/3198">Show</a></td>
+        <td><%= attachment_image_tag user, :my_image, :fill, 50, 50,
+                                            fallback: "no_image.jpg",
+                                            size: '50x50',
+                                            class: "img-circle" %>
+        </td>
+        <td><%= user.name %></td>
+        <td><%= link_to "Show", user_path(user), class: "user_#{user.id}" %></td>
       </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>coacer</td>
-        <td><a class="user_3199" href="/users/3199">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>vvvvvv</td>
-        <td><a class="user_3201" href="/users/3201">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image" src="/attachments/896f54f9f313ddce9b04f2d1731e8ce1ad6c5e8b/store/fill/50/50/acc30a198f4bf930bd0b7be7ff32c578779322fd2731edc1e1266fb1090c/profile_image" alt="Profile image"></td>
-        <td>bunkou</td>
-        <td><a class="user_3200" href="/users/3200">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>aa</td>
-        <td><a class="user_3202" href="/users/3202">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>123</td>
-        <td><a class="user_3203" href="/users/3203">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>ABCD</td>
-        <td><a class="user_3204" href="/users/3204">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>test</td>
-        <td><a class="user_3205" href="/users/3205">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>サンプルタロウ</td>
-        <td><a class="user_3196" href="/users/3196">Show</a></td>
-      </tr>
-      <tr>
-        <td><img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon"></td>
-        <td>テストジロウ</td>
-        <td><a class="user_3197" href="/users/3197">Show</a></td>
-      </tr>
+    <% end %>
   </tbody>
 </table>

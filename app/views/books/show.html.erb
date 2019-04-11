@@ -8,14 +8,20 @@
 		<tbody>
 			<tr>
         <td>
-        	<a href="/users/3205">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" alt="No image icon">
-          <br>test</a>
+          <%= link_to user_path(@user) do %>
+            <%= attachment_image_tag @user, :my_image, :fill, 50, 50,
+                                            fallback: "no_image.jpg",
+                                            size: '50x50',
+                                            class: "img-circle" %>
+            <br><%= @user.name %>
+          <% end %>
         </td>
-        <td><a href="/books/5712">book#show</a></td>
-        <td>current_user</td>
-				<td><a class="btn-sm btn-success edit_book_5712" href="/books/5712/edit">Edit</a></td>
-				<td><a data-confirm="本当に消しますか？" class="btn-sm btn-danger destroy_book_5712" rel="nofollow" data-method="delete" href="/books/5712">Destroy</a></td>
+        <td><%= @book.title %></td>
+        <td><%= @book.opinion %></td>
+        <% if current_user == @user %>
+				  <td><%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success edit_book_#{@book.id}" %></td>
+				  <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn-sm btn-danger destroy_book_#{@book.id}" %></td>
+        <% end %>
       </tr>
     </tbody>
   </table>

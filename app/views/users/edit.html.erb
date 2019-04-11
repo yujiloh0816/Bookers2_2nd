@@ -2,23 +2,26 @@
 	<div class="col-md-6 col-md-offset-3">
 		<h1>Editing User</h1>
 
-		<form class="edit_user" id="edit_user_5712" action="/users/5712" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="E9NxHllMZbJb+6k2tE6vcKaKlfUF2HAEXx5xUlsrCiyVRTt7yuPamR7gOqWj3nQ8BlNSFfG7p8Fa3TptTwVCsw==">
-  <div class="field row">
-    <label for="user_title">Name</label>
-    <input class="col-xs-12 user_title" type="text" value="user#show" name="user[title]" id="user_title">
-  </div>
+    <%= form_for(@user) do |f| %>
+    <%= render partial: "layouts/shared/error", locals: {instance: @user} %>
 
-  <div class="field row">
-    <label for="user_opinion">Introduction</label>
-    <textarea class="col-xs-12 user_body" name="user[body]" id="user_body">current_user</textarea>
-  </div>
-
-  <div class="actions row">
-    <input type="submit" name="commit" value="Update user" class="btn btn-primary col-xs-12" data-disable-with="Update user">
-  </div>
-</form>
-		<a class="user_5712" href="/users/5712">Show</a> |
-		<a class="back" href="/users">Back</a>
+      <div class="field row">
+        <%= f.label :name, "Name" %>
+        <%= f.text_field :name, class: "col-xs-12 name" %>
+      </div>
+      <div class="field row">
+        <%= f.label :my_image, "Image" %>
+        <%= f.attachment_field :my_image, class: "col-xs-12 user_image" %>
+      </div>
+      <div class="field row">
+        <%= f.label :introduction, "Introduction" %>
+        <%= f.text_area :introduction, class: "col-xs-12 introduction" %>
+      </div>
+      <div class="actions row">
+        <%= f.submit "Update user", class: "btn btn-primary col-xs-12" %>
+      </div>
+    <% end %>
+		<%= link_to "Back", :back, class: "back" %>
     </div>
     <div class="col-md-3"></div>
 </div>
